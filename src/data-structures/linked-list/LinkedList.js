@@ -269,4 +269,46 @@ export default class LinkedList {
 
     return this;
   }
+
+    /**
+   * Get element at given index.
+   * @param {number} index - Index to get element from.
+   * @return {LinkedListNode|null} - Node at given index or null if index out of bounds.
+   */
+  at(index) {
+    let count = 0;
+    let currentNode = this.head;
+    
+    while (currentNode) {
+      if (count === index) {
+        return currentNode;
+      }
+      
+      currentNode = currentNode.next;
+      count += 1;
+    }
+    
+    return null;
+  }
+
+  /**
+   * Get index of the node with given value.
+   * @param {*} value - Value to search for.
+   * @return {number} - Index of the node or -1 if not found.
+   */
+  indexOf(value) {
+    let count = 0;
+    let currentNode = this.head;
+    
+    while (currentNode) {
+      if (this.compare.equal(currentNode.value, value)) {
+        return count;
+      }
+      
+      currentNode = currentNode.next;
+      count += 1;
+    }
+    
+    return -1;
+  }
 }
